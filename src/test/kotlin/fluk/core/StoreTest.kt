@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Test
 internal class StoreTest {
 
     @Test
-    fun `A store should persist the initial state`() {
+    fun `it should have the initial state persisted`() {
         val store = Store(42) { _, _ -> 0 }
 
         Assertions.assertEquals(42, store.state)
     }
 
     @Test
-    fun `A store should mutate the state after a dispatch`() {
+    fun `it should mutate the state after a dispatch`() {
         val store = Store(0) { _, _ -> 42 }
 
         store.dispatch(object : Action {})
@@ -23,7 +23,7 @@ internal class StoreTest {
     }
 
     @Test
-    fun `Subscribers should be notified after a dispatch`() {
+    fun `it should fire subscribers after a dispatch`() {
         val store = Store(0) { _, _ -> 42 }
         var subscriberState: Int? = null
 
@@ -36,7 +36,7 @@ internal class StoreTest {
     }
 
     @Test
-    fun `A middleware can break the dispatch chain and override the value`() {
+    fun `it should be possible to break the dispatch chain and override the value with the middleware`() {
         val action = object: Action {}
 
         val middleware: Middleware<Int> = { _: Int, _: Action, _: DispatchChain<Int> ->
@@ -51,7 +51,7 @@ internal class StoreTest {
     }
 
     @Test
-    fun `The reducer value should be persisted if the middleware chain is not broken`() {
+    fun `it should persist the reducer value if the middleware chain is not broken`() {
         val middleware: Middleware<Int> = { state: Int, action: Action, chain: DispatchChain<Int> ->
             chain.next(state, action)
         }
@@ -64,7 +64,7 @@ internal class StoreTest {
     }
 
     @Test
-    fun `Should be possible to unsubscribe from the store`() {
+    fun `it should be possible to unsubscribe from the store`() {
         val store = Store(0) { state, _ -> state + 42 }
         var stateInListener: Int? = null
 
@@ -84,7 +84,7 @@ internal class StoreTest {
     }
 
     @Test
-    fun `A dispatch should run inside the middleware chain`() {
+    fun `it should run the reducer inside the middleware chain`() {
         val middleware = MonitoringMiddleware<Int>({ state, _ ->
             Assertions.assertEquals(0, state)
         }, {  state, _ ->
@@ -100,7 +100,7 @@ internal class StoreTest {
     }
 
     @Test
-    fun `Should be possible to create and use selectors`() {
+    fun `it should be possible to create and use selectors`() {
         class User(val name: String)
 
         val store = Store(User("John Doe"), listOf()) { state, _ -> state }

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 internal class MiddlewareTest {
 
     @Test
-    fun `should be possible to compose multiple middlewares`() {
+    fun `it should be possible to compose multiple middlewares`() {
         val midSumBy1: Middleware<Int> = { state: Int, action: Action, chain: DispatchChain<Int> ->
             chain.next(state + 1, action)
         }
@@ -24,7 +24,7 @@ internal class MiddlewareTest {
     }
 
     @Test
-    fun `Middlewares should run chained`() {
+    fun `it should run the middleware in a recursive chain`() {
         val mid1: Middleware<Int> = { state: Int, action: Action, chain: DispatchChain<Int> ->
             Assertions.assertEquals(1, state)
             chain.next(state + 1, action).also {

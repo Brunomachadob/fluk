@@ -44,5 +44,5 @@ You can find more examples at [src/test/kotlin/fluk/core/usecases](https://githu
 - [X] Dispatch mechanism
 - [X] Middlewares
 - [X] Selectors
-- [ ] Time travel mechanism
+- [X] Time travel mechanism
 - [ ] Thread safe store

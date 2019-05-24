@@ -20,8 +20,6 @@ internal class TodoStoreTest {
 
     @Test
     fun `Todo store test case`() {
-
-
         val logger = mutableListOf<String>()
 
         val loggingMiddleware = MonitoringMiddleware<TodoState>({ state, action ->
