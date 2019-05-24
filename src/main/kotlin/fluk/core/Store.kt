@@ -1,6 +1,7 @@
 package fluk.core
 
 typealias Reducer<T> = (T, Action) -> T
+typealias Middleware<T> = (T, Action, chain: DispatchChain<T>) -> T
 typealias Subscriber<T> = (T) -> Unit
 typealias Unsubscriber = () -> Unit
 
@@ -10,10 +11,8 @@ class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), re
 
     private val subscribers = mutableListOf<Subscriber<T>>()
 
-    private val reducerMiddleware: Middleware<T> = object : Middleware<T> {
-        override fun dispatch(state: T, action: Action, chain: DispatchChain<T>): T {
-            return reducer(state, action)
-        }
+    private val reducerMiddleware: Middleware<T> = { state: T, action: Action, _: DispatchChain<T> ->
+        reducer(state, action)
     }
 
     private val middlewares = mutableListOf<Middleware<T>>().apply {

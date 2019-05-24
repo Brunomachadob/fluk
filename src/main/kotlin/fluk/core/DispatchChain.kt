@@ -5,7 +5,7 @@ class DispatchChain<T>(middlewares: List<Middleware<T>>) {
 
     fun next(state: T, action: Action): T {
        return when(iterator.hasNext()) {
-            true -> iterator.next().dispatch(state, action, this)
+            true -> iterator.next().invoke(state, action, this)
             false -> state
         }
     }

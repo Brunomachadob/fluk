@@ -39,8 +39,8 @@ internal class StoreTest {
     fun `A middleware can break the dispatch chain and override the value`() {
         val action = object: Action {}
 
-        val middleware = object : Middleware<Int> {
-            override fun dispatch(state: Int, action: Action, chain: DispatchChain<Int>) = 43
+        val middleware: Middleware<Int> = { _: Int, _: Action, _: DispatchChain<Int> ->
+            43
         }
 
         val store = Store(0, listOf(middleware)) { _, _ -> 42 }
@@ -52,15 +52,13 @@ internal class StoreTest {
 
     @Test
     fun `The reducer value should be persisted if the middleware chain is not broken`() {
-        val action = object: Action {}
-
-        val middleware1 = object : Middleware<Int> {
-            override fun dispatch(state: Int, action: Action, chain: DispatchChain<Int>) = chain.next(state, action)
+        val middleware: Middleware<Int> = { state: Int, action: Action, chain: DispatchChain<Int> ->
+            chain.next(state, action)
         }
 
-        val store = Store(0, listOf(middleware1)) { _, _ -> 42 }
+        val store = Store(0, listOf(middleware)) { _, _ -> 42 }
 
-        store.dispatch(action)
+        store.dispatch(object: Action {})
 
         Assertions.assertEquals(42, store.state)
     }

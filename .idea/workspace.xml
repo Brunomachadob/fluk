@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cbe1c28-5449-4aa8-9fd0-8998046e978c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/fluk/core/DispatchChain.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fluk/core/Middleware.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fluk/core/Middleware.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fluk/core/DispatchChain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fluk/core/DispatchChain.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fluk/core/Middleware.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/fluk/core/AssertionMiddleware.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/fluk/core/AssertionMiddleware.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/fluk/core/MiddlewareTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/fluk/core/MiddlewareTest.kt" afterDir="false" />
@@ -21,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fluk$fluk_core_in_com_bruno_fluk_test.ic" NAME="fluk.core in com.bruno.fluk.test Coverage Results" MODIFIED="1558682817268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/fluk$fluk_core_in_com_bruno_fluk_test.ic" NAME="fluk.core in com.bruno.fluk.test Coverage Results" MODIFIED="1558684415731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="249" />
@@ -65,10 +64,28 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="167" column="18" selection-start-line="167" selection-start-column="18" selection-end-line="167" selection-end-column="18" />
+            <state relative-caret-position="225">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/AssertionMiddleware.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/MiddlewareTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#19#92#0" expanded="true" />
               </folding>
@@ -77,10 +94,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Middleware.kt">
+        <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            <state relative-caret-position="148">
+              <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
+              <folding>
+                <element signature="e#19#92#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,17 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/DispatchChain.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="90">
+              <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -136,13 +147,13 @@
         <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/Store.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/fluk/core/Reducer.kt" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/MiddlewareTest.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/fluk/core/MiddlewareChain.kt" />
-        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/AssertionMiddleware.kt" />
-        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/fluk/core/DispatchChain.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/fluk/core/Middleware.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/AssertionMiddleware.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/fluk/core/DispatchChain.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/MiddlewareTest.kt" />
       </list>
     </option>
   </component>
@@ -365,15 +376,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 17m 33s.xml">
-      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 18m 27s.xml">
-      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 19m 34s.xml">
-      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 20m 19s.xml">
       <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
     </history-entry>
@@ -395,6 +397,15 @@
     <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 26m 59s.xml">
       <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 30m 02s.xml">
+      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 52m 03s.xml">
+      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 53m 11s.xml">
+      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="0" />
@@ -411,10 +422,10 @@
       <window_info anchor="bottom" id="Terminal" weight="0.329235" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Build" weight="0.329235" />
-      <window_info anchor="bottom" id="Messages" weight="0.329235" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.329235" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329235" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329235" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329235" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3989071" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -610,10 +621,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Middleware.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/AssertionMiddleware.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/DispatchChain.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="167" column="18" selection-start-line="167" selection-start-column="18" selection-end-line="167" selection-end-column="18" />
+        <state relative-caret-position="148">
+          <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
           <folding>
             <element signature="e#19#92#0" expanded="true" />
           </folding>
@@ -622,39 +661,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/MiddlewareTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+        <state relative-caret-position="118">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#19#92#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/AssertionMiddleware.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Middleware.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/DispatchChain.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>

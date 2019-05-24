@@ -9,7 +9,7 @@ class MonitoringMiddleware<T>(
     var called = false
         private set
 
-    override fun dispatch(state: T, action: Action, chain: DispatchChain<T>): T {
+    override operator fun invoke(state: T, action: Action, chain: DispatchChain<T>): T {
         called = true
 
         beforeChain(state, action)
