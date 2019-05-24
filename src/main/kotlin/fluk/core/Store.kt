@@ -11,13 +11,11 @@ class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), re
 
     private val subscribers = mutableListOf<Subscriber<T>>()
 
-    private val reducerMiddleware: Middleware<T> = { state: T, action: Action, _: DispatchChain<T> ->
-        reducer(state, action)
-    }
-
     private val middlewares = mutableListOf<Middleware<T>>().apply {
         addAll(middlewares)
-        add(reducerMiddleware)
+        add { state: T, action: Action, _: DispatchChain<T> ->
+            reducer(state, action)
+        }
     }.toList()
 
     fun subscribe(subscriber: Subscriber<T>): Unsubscriber {
@@ -27,9 +25,9 @@ class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), re
     }
 
     fun dispatch(action: Action) {
-        val middlewareChain = DispatchChain(middlewares)
+        val dispatchChain = DispatchChain(middlewares)
 
-        state = middlewareChain.next(state, action)
+        state = dispatchChain.next(state, action)
 
         subscribers.forEach { it(state) }
     }
