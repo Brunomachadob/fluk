@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Test
 internal class StoreTest {
 
     @Test
-    fun `A store should persist initial state`() {
+    fun `A store should persist the initial state`() {
         val store = Store(42) { _, _ -> 0 }
 
         Assertions.assertEquals(42, store.state)
     }
 
     @Test
-    fun `A store should mutate state after a dispatch`() {
+    fun `A store should mutate the state after a dispatch`() {
         val store = Store(0) { _, _ -> 42 }
 
         store.dispatch(object : Action {})
@@ -25,14 +25,14 @@ internal class StoreTest {
     @Test
     fun `Subscribers should be notified after a dispatch`() {
         val store = Store(0) { _, _ -> 42 }
-        var stateInListener: Int? = null
+        var subscriberState: Int? = null
 
-        store.subscribe { stateInListener = it  }
+        store.subscribe { subscriberState = it  }
 
         store.dispatch(object : Action {})
 
         Assertions.assertEquals(42, store.state)
-        Assertions.assertEquals(42, stateInListener)
+        Assertions.assertEquals(42, subscriberState)
     }
 
     @Test
@@ -40,10 +40,10 @@ internal class StoreTest {
         val action = object: Action {}
 
         val middleware = object : Middleware<Int> {
-            override fun dispatch(state: Int, action: Action, next: Middleware<Int>) = 43
+            override fun dispatch(state: Int, action: Action, chain: DispatchChain<Int>) = 43
         }
 
-        val store = Store(0, middleware) { _, _ -> 42 }
+        val store = Store(0, listOf(middleware)) { _, _ -> 42 }
 
         store.dispatch(action)
 
@@ -51,18 +51,14 @@ internal class StoreTest {
     }
 
     @Test
-    fun `Composed middlewares`() {
+    fun `The reducer value should be persisted if the middleware chain is not broken`() {
         val action = object: Action {}
 
         val middleware1 = object : Middleware<Int> {
-            override fun dispatch(state: Int, action: Action, next: Middleware<Int>) = next.dispatch(state, action)
+            override fun dispatch(state: Int, action: Action, chain: DispatchChain<Int>) = chain.next(state, action)
         }
 
-        val middleware2 = object : Middleware<Int> {
-            override fun dispatch(state: Int, action: Action, next: Middleware<Int>) = next.dispatch(state, action)
-        }
-
-        val store = Store(0, composeMiddlewares(middleware1, middleware2)) { _, _ -> 42 }
+        val store = Store(0, listOf(middleware1)) { _, _ -> 42 }
 
         store.dispatch(action)
 
@@ -114,13 +110,13 @@ internal class StoreTest {
 
     @Test
     fun `A dispatch should run inside the middleware chain`() {
-        val middleware = AssertionMiddleware<Int>({
-            Assertions.assertEquals(0, it)
-        }, {
-            Assertions.assertEquals(1, it)
+        val middleware = MonitoringMiddleware<Int>({ state, _ ->
+            Assertions.assertEquals(0, state)
+        }, {  state, _ ->
+            Assertions.assertEquals(1, state)
         })
 
-        val store = Store(0, middleware) { state, _ -> state + 1 }
+        val store = Store(0, listOf(middleware)) { state, _ -> state + 1 }
 
         store.dispatch(object : Action {})
 
@@ -131,13 +127,23 @@ internal class StoreTest {
 
     @Test
     fun `Complex todo store`() {
-        class Todo(val text: String)
-        class TodoState(var newTodoText: String, val todos: MutableList<Todo>)
+        data class Todo(val text: String)
+        data class TodoState(var newTodoText: String, val todos: MutableList<Todo>)
 
-        class UpdateNewTodoText(val newTodoText: String): Action
-        class AddTodo: Action
+        data class UpdateNewTodoText(val newTodoText: String): Action
+        data class AddTodo(val text: String): Action
 
-        val store = Store(TodoState("", mutableListOf())) { todoState, action ->
+        val logger = mutableListOf<String>()
+
+        val loggingMiddleware = MonitoringMiddleware<TodoState>({ state, action ->
+            logger.add("before $action: $state")
+        }, { state, action ->
+            logger.add("after $action: $state")
+        })
+
+        val state = TodoState("", mutableListOf())
+
+        val store = Store(state, listOf(loggingMiddleware)) { todoState, action ->
             when(action) {
                 is UpdateNewTodoText -> todoState.apply { newTodoText = action.newTodoText }
                 is AddTodo -> todoState
@@ -150,9 +156,16 @@ internal class StoreTest {
         store.dispatch(UpdateNewTodoText("Something"))
         Assertions.assertEquals("Something", store.state.newTodoText)
 
-        store.dispatch(AddTodo())
+        store.dispatch(AddTodo(store.state.newTodoText))
         Assertions.assertEquals("", store.state.newTodoText)
         Assertions.assertEquals("Something", store.state.todos.first().text)
+
+        Assertions.assertEquals(mutableListOf(
+            "before UpdateNewTodoText(newTodoText=Something): TodoState(newTodoText=, todos=[])",
+            "after UpdateNewTodoText(newTodoText=Something): TodoState(newTodoText=Something, todos=[])",
+            "before AddTodo(text=Something): TodoState(newTodoText=Something, todos=[])",
+            "after AddTodo(text=Something): TodoState(newTodoText=, todos=[Todo(text=Something)])"
+        ), logger)
 
     }
 }

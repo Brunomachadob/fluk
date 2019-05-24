@@ -4,19 +4,22 @@ typealias Reducer<T> = (T, Action) -> T
 typealias Subscriber<T> = (T) -> Unit
 typealias Unsubscriber = () -> Unit
 
-class Store<T> (initialState: T, private val middleware: Middleware<T>? = null, reducer: Reducer<T>) {
+class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), reducer: Reducer<T>) {
     var state: T = initialState
         private set
 
     private val subscribers = mutableListOf<Subscriber<T>>()
 
     private val reducerMiddleware: Middleware<T> = object : Middleware<T> {
-        override fun dispatch(currentState: T, action: Action, next: Middleware<T>): T {
-            return reducer(currentState, action)
+        override fun dispatch(state: T, action: Action, chain: DispatchChain<T>): T {
+            return reducer(state, action)
         }
     }
 
-    operator fun component1() = state
+    private val middlewares = mutableListOf<Middleware<T>>().apply {
+        addAll(middlewares)
+        add(reducerMiddleware)
+    }.toList()
 
     fun subscribe(subscriber: Subscriber<T>): Unsubscriber {
         subscribers.add(subscriber)
@@ -25,11 +28,9 @@ class Store<T> (initialState: T, private val middleware: Middleware<T>? = null, 
     }
 
     fun dispatch(action: Action) {
-        state = if (middleware == null) {
-            reducerMiddleware.dispatch(state, action, NoOpMiddleware())
-        } else {
-            middleware.dispatch(state, action, reducerMiddleware)
-        }
+        val middlewareChain = DispatchChain(middlewares)
+
+        state = middlewareChain.next(state, action)
 
         subscribers.forEach { it(state) }
     }
