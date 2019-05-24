@@ -97,6 +97,17 @@ internal class StoreTest {
 
         Assertions.assertEquals(middleware.called, true)
         Assertions.assertEquals(1, store.state)
+    }
 
+    @Test
+    fun `Should be possible to create and use selectors`() {
+        class User(val name: String)
+
+        val store = Store(User("John Doe"), listOf()) { state, _ -> state }
+        val userNameSelector = store.selector { it.name }
+
+        store.dispatch(object : Action {})
+
+        Assertions.assertEquals("John Doe", userNameSelector())
     }
 }

@@ -4,6 +4,9 @@
     <list default="true" id="2cbe1c28-5449-4aa8-9fd0-8998046e978c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/fluk/core/usecases/UserStoreTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/fluk/core/usecases/UserStoreTest.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -15,10 +18,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fluk$fluk_core_in_com_bruno_fluk_test.ic" NAME="fluk.core in com.bruno.fluk.test Coverage Results" MODIFIED="1558691954577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/fluk$fluk_core_in_com_bruno_fluk_test.ic" NAME="fluk.core in com.bruno.fluk.test Coverage Results" MODIFIED="1558698062712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="272" />
+    <option name="myElementSize" value="277" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -58,32 +61,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="291">
-                <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-              </first_editor>
-              <second_editor />
+            <state relative-caret-position="369">
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Action.kt">
+        <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="264">
+              <caret line="106" column="47" selection-start-line="106" selection-start-column="47" selection-end-line="106" selection-end-column="47" />
+              <folding>
+                <element signature="e#19#92#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/usecases/UserStoreTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+              <folding>
+                <element signature="e#28#148#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,12 +133,12 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/fluk/core/DispatchChain.kt" />
         <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/MiddlewareTest.kt" />
         <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/UserStoreTest.kt" />
-        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt" />
         <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/usecases/TodoStoreTest.kt" />
-        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/usecases/UserStoreTest.kt" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt" />
+        <option value="$PROJECT_DIR$/src/test/kotlin/fluk/core/usecases/UserStoreTest.kt" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt" />
       </list>
     </option>
   </component>
@@ -188,6 +194,36 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fluk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fluk" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="fluk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fluk" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fluk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fluk" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fluk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fluk" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="usecases" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -338,15 +374,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 26m 41s.xml">
-      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 26m 59s.xml">
-      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 30m 02s.xml">
-      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 09h 52m 03s.xml">
       <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
     </history-entry>
@@ -368,12 +395,21 @@
     <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 11h 59m 17s.xml">
       <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 13h 39m 46s.xml">
+      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 13h 40m 15s.xml">
+      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="fluk_core_in_com_bruno_fluk_test - 2019.05.24 at 13h 41m 05s.xml">
+      <configuration name="fluk.core in com.bruno.fluk.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Designer" order="3" />
@@ -381,14 +417,14 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329235" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329235" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329235" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3989071" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="DB Execution Console" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.329235" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.329235" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.329235" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.329235" />
@@ -566,30 +602,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
-          <folding>
-            <element signature="e#19#92#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/usecases/TodoStoreTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/usecases/UserStoreTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding>
-            <element signature="e#28#148#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -614,20 +630,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt">
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/StoreTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        <state relative-caret-position="264">
+          <caret line="106" column="47" selection-start-line="106" selection-start-column="47" selection-end-line="106" selection-end-column="47" />
+          <folding>
+            <element signature="e#19#92#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="291">
-            <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="217">
+            <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/fluk/core/usecases/UserStoreTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding>
+            <element signature="e#28#148#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/fluk/core/Store.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
         </state>
       </provider>
     </entry>

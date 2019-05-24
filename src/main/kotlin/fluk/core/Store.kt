@@ -24,6 +24,10 @@ class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), re
         return { subscribers.remove(subscriber) }
     }
 
+    fun <S> selector(selector: (T) -> S): () -> S {
+        return { selector(state) }
+    }
+
     fun dispatch(action: Action) {
         val dispatchChain = DispatchChain(middlewares)
 

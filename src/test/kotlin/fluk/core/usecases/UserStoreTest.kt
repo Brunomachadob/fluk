@@ -25,9 +25,11 @@ internal class UserStoreTest {
             }
         }
 
+        val userNameSelector = store.selector { it?.name }
+
         store.dispatch(SetUserAction(User("John Doe")))
 
-        Assertions.assertEquals("John Doe", store.state?.name)
+        Assertions.assertEquals("John Doe", userNameSelector())
 
         store.dispatch(ClearAction())
 

@@ -26,21 +26,23 @@ val store = Store<User?>(null) { state, action ->
     }
 }
 
+val userNameSelector = store.selector { it?.name }
+
 store.dispatch(SetUserAction(User("John Doe")))
 
-Assertions.assertEquals("John Doe", store.state?.name)
+Assertions.assertEquals("John Doe", userNameSelector())
 
 store.dispatch(ClearAction())
 
 Assertions.assertEquals(null, store.state)
 ```
 
-You can find more examples at `src/test/kotlin/fluk/core/usecases`
+You can find more examples at [src/test/kotlin/fluk/core/usecases](https://github.com/Brunomachadob/fluk/tree/master/src/test/kotlin/fluk/core/usecases)
 
 ## Todo
 
 - [X] Dispatch mechanism
 - [X] Middlewares
-- [ ] Selectors
+- [X] Selectors
 - [ ] Time travel mechanism
 - [ ] Thread safe store
