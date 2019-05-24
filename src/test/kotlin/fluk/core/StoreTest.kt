@@ -106,8 +106,6 @@ internal class StoreTest {
         val store = Store(User("John Doe"), listOf()) { state, _ -> state }
         val userNameSelector = store.selector { it.name }
 
-        store.dispatch(object : Action {})
-
         Assertions.assertEquals("John Doe", userNameSelector())
     }
 }
