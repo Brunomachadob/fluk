@@ -4,6 +4,7 @@ import fluk.core.Action
 import fluk.core.Store
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import java.util.*
 
 
 internal class UserStoreTest {
@@ -33,6 +34,6 @@ internal class UserStoreTest {
 
         store.dispatch(ClearAction())
 
-        Assertions.assertEquals(null, store.state)
+        Assertions.assertEquals(null, userNameSelector())
     }
 }

@@ -34,7 +34,7 @@ Assertions.assertEquals("John Doe", userNameSelector())
 
 store.dispatch(ClearAction())
 
-Assertions.assertEquals(null, store.state)
+Assertions.assertEquals(null, userNameSelector())
 ```
 
 You can find more examples at [src/test/kotlin/fluk/core/usecases](https://github.com/Brunomachadob/fluk/tree/master/src/test/kotlin/fluk/core/usecases)
