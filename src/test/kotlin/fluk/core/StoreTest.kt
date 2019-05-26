@@ -2,6 +2,9 @@ package fluk.core
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import java.util.concurrent.Callable
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 
 internal class StoreTest {
@@ -107,5 +110,47 @@ internal class StoreTest {
         val userNameSelector = store.selector { it.name }
 
         Assertions.assertEquals("John Doe", userNameSelector())
+    }
+
+    @Test
+    fun `it should be possible to watch for a value change in the store`() {
+        class User(var name: String)
+        class UpdateUserNameAction(val newName: String): Action
+
+        val changes = mutableListOf<String>()
+        val store = Store(User("John"), listOf()) { state, action ->
+            when(action) {
+                is UpdateUserNameAction -> state.apply { name = action.newName }
+                else -> state
+            }
+        }
+
+        store.valueWatcher({ it.name }) { oldValue, newValue ->
+            changes.add("$oldValue -> $newValue")
+        }
+
+
+        store.dispatch(object: Action {})
+        store.dispatch(UpdateUserNameAction("John Doe"))
+
+        Assertions.assertEquals(mutableListOf(
+            "John -> John Doe"
+        ), changes)
+    }
+
+    @Test
+    fun `it should be thread safe`() {
+        val store = Store(0, listOf()) { state, _ -> state + 1}
+
+        val operations = (1..20).map {
+            Callable { store.dispatch(object: Action {}) }
+        }
+
+        Executors
+            .newFixedThreadPool(5)
+            .invokeAll(operations)
+            .map { it.get() }
+
+        Assertions.assertEquals(20, store.state)
     }
 }

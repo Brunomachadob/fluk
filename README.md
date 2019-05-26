@@ -43,6 +43,8 @@ You can find more examples at [src/test/kotlin/fluk/core/usecases](https://githu
 
 - [X] Dispatch mechanism
 - [X] Middlewares
+- [X] Subscribers
+- [X] Value watchers
 - [X] Selectors
 - [X] Time travel mechanism
-- [ ] Thread safe store
+- [X] Thread safe store

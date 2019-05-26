@@ -2,6 +2,7 @@ package fluk.core
 
 typealias Reducer<T> = (T, Action) -> T
 typealias Middleware<T> = (T, Action, chain: DispatchChain<T>) -> T
+typealias Selector<T, S> = (T) -> S
 typealias Subscriber<T> = (T) -> Unit
 typealias Unsubscriber = () -> Unit
 
@@ -16,7 +17,7 @@ class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), re
         add { state: T, action: Action, _: DispatchChain<T> ->
             reducer(state, action)
         }
-    }.toList()
+    }
 
     fun subscribe(subscriber: Subscriber<T>): Unsubscriber {
         subscribers.add(subscriber)
@@ -24,14 +25,28 @@ class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), re
         return { subscribers.remove(subscriber) }
     }
 
-    fun <S> selector(selector: (T) -> S): () -> S {
+    fun <S> selector(selector: Selector<T, S>): () -> S {
         return { selector(state) }
+    }
+
+    fun <S> valueWatcher(selector: Selector<T, S>, onValueChange: (S, S) -> Unit) {
+        middlewares.add(0) { state, action, chain ->
+            val oldValue = selector(state)
+
+            chain.next(state, action).also {
+                val newValue = selector(it)
+
+                if (oldValue != newValue) onValueChange(oldValue, newValue)
+            }
+        }
     }
 
     fun dispatch(action: Action) {
         val dispatchChain = DispatchChain(middlewares)
 
-        state = dispatchChain.next(state, action)
+         state = synchronized(this) {
+             dispatchChain.next(state, action)
+        }
 
         subscribers.forEach { it(state) }
     }

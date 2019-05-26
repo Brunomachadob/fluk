@@ -4,7 +4,6 @@ import fluk.core.Action
 import fluk.core.Store
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import java.util.*
 
 
 internal class UserStoreTest {
