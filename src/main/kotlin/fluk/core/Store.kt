@@ -1,7 +1,7 @@
 package fluk.core
 
 typealias Reducer<T> = (T, Action) -> T
-typealias Middleware<T> = (T, Action, chain: DispatchChain<T>) -> T
+typealias Middleware<T> = (T, Action, DispatchChain<T>) -> T
 typealias Selector<T, S> = (T) -> S
 typealias Subscriber<T> = (T) -> Unit
 typealias Unsubscriber = () -> Unit
@@ -29,8 +29,8 @@ class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), re
         return { selector(state) }
     }
 
-    fun <S> valueWatcher(selector: Selector<T, S>, onValueChange: (S, S) -> Unit) {
-        middlewares.add(0) { state, action, chain ->
+    fun <S> valueWatcher(selector: Selector<T, S>, onValueChange: (S, S) -> Unit): Unsubscriber {
+        val valueWatcherMiddleware: Middleware<T> = { state, action, chain ->
             val oldValue = selector(state)
 
             chain.next(state, action).also {
@@ -39,6 +39,10 @@ class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), re
                 if (oldValue != newValue) onValueChange(oldValue, newValue)
             }
         }
+
+        middlewares.add(0, valueWatcherMiddleware)
+
+        return { middlewares.remove(valueWatcherMiddleware) }
     }
 
     fun dispatch(action: Action) {

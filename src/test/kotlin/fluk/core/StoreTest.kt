@@ -125,13 +125,16 @@ internal class StoreTest {
             }
         }
 
-        store.valueWatcher({ it.name }) { oldValue, newValue ->
+        val unsubscribe = store.valueWatcher({ it.name }) { oldValue, newValue ->
             changes.add("$oldValue -> $newValue")
         }
 
 
-        store.dispatch(object: Action {})
         store.dispatch(UpdateUserNameAction("John Doe"))
+
+        unsubscribe()
+
+        store.dispatch(UpdateUserNameAction("John"))
 
         Assertions.assertEquals(mutableListOf(
             "John -> John Doe"
