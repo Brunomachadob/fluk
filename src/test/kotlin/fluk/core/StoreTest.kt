@@ -145,7 +145,7 @@ internal class StoreTest {
     fun `it should be thread safe`() {
         val store = Store(0, listOf()) { state, _ -> state + 1}
 
-        val operations = (1..20).map {
+        val operations = (1..1000).map {
             Callable { store.dispatch(object: Action {}) }
         }
 
@@ -154,6 +154,6 @@ internal class StoreTest {
             .invokeAll(operations)
             .map { it.get() }
 
-        Assertions.assertEquals(20, store.state)
+        Assertions.assertEquals(1000, store.state)
     }
 }

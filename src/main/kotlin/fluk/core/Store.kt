@@ -48,8 +48,8 @@ class Store<T> (initialState: T, middlewares: List<Middleware<T>> = listOf(), re
     fun dispatch(action: Action) {
         val dispatchChain = DispatchChain(middlewares)
 
-         state = synchronized(this) {
-             dispatchChain.next(state, action)
+        synchronized(this) {
+            state = dispatchChain.next(state, action)
         }
 
         subscribers.forEach { it(state) }
