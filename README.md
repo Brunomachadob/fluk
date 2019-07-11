@@ -1,5 +1,6 @@
 # Fluk
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/2ee40d3c924df3493001/maintainability)](https://codeclimate.com/github/Brunomachadob/fluk/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2ee40d3c924df3493001/test_coverage)](https://codeclimate.com/github/Brunomachadob/fluk/test_coverage)
 ---
 
 [Flux](https://facebook.github.io/flux/) architecture implementation for Kotlin
