@@ -4,7 +4,10 @@ commands:
   install-curl:
     description: Install cURL
     steps:
-      - run: apk --no-cache add curl
+      - run: |
+          apt-get update
+          apt-get install -yq curl \
+          rm -rf /var/lib/apt/lists/*
 
   install-code-climate:
     description: Install Code Climate
