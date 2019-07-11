@@ -1,6 +1,11 @@
 version: 2.1
 
 commands:
+  install-curl:
+    description: Install cURL
+    steps:
+      - run: apk --no-cache add curl
+
   install-code-climate:
     description: Install Code Climate
     steps:
@@ -52,6 +57,7 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}-{{ checksum "gradle.properties" }}
 
+      - install-curl
       - install-code-climate
       - test-upload-coverage:
           steps:
