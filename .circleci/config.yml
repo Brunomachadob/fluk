@@ -1,15 +1,14 @@
 restore-gradle-cache: &restore-gradle-cache
   restore_cache:
     keys:
-      - v1-dependencies-{{ checksum "build.gradle" }}-{{ checksum "api/build.gradle" }}-{{ checksum "domain/build.gradle" }}-{{ checksum "gradle.properties" }}
-      # fallback to using the latest cache if no exact match is found
+      - v1-dependencies-{{ checksum "build.gradle" }}-{{ checksum "gradle.properties" }}
       - v1-dependencies-
 
 save-gradle-cache: &save-gradle-cache
   save_cache:
     paths:
       - ~/.gradle
-    key: v1-dependencies-{{ checksum "build.gradle" }}-{{ checksum "api/build.gradle" }}-{{ checksum "domain/build.gradle" }}-{{ checksum  "gradle.properties" }}
+    key: v1-dependencies-{{ checksum "build.gradle" }}-{{ checksum "gradle.properties" }}
 
 version: 2
 jobs:
@@ -21,7 +20,6 @@ jobs:
     steps:
       - checkout
 
-      # download and cache dependencies
       - <<: *restore-gradle-cache
       - run: ./gradlew compileTestKotlin
       - <<: *save-gradle-cache
